@@ -11,5 +11,8 @@
   "dependencies": {
     "mysql2": "^2.3.3",
     "sequelize": "^6.17.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
