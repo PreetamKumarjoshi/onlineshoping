@@ -1,0 +1,40 @@
+<%- include('../includes/header.ejs') %>
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <div>
+            <% if(items){ %>
+                <% for(var item of items){ %> 
+                   <% if(item.id){ %>
+                    <article>
+                        <header>
+                            <%= item.length %>
+                            <h1><%= item.title %></h1>
+                        </header>
+                        <div>
+                            <img src="<%= item.imageUrl%>" alt="<%= item.title%>" style="width: 250px;" >
+                        </div>
+                        <div>
+                            <h2><%= item.price%></h2>
+                            <p><%= item.description%></p>
+                        </div>
+                        <div>
+                            <form action="/admin/edit-product/<%= item.id %>" method="post">
+                                <button href= class="btn">Edit</button>
+                            </form>
+                            <form action="/admin/delete-product" method="post">
+                                <input type="hidden" name="productId" value="<%= item.id %>">
+                                <button href= class="btn">Delelte</button>
+                            </form>
+                            
+                        </div>
+                    </article>
+                    <% } %>
+                <% } %>    
+            <% } %>
+        </div>
+    </main>
+    
+</body>
+</html>
